@@ -16,14 +16,14 @@ sudo apt install postgresql
 ```
 sudo -i -u postgres
 psql
-> create user odoo with enctypted password 'odoo';
+> create user odoo with encrypted password 'odoo';
 > alter user odoo with superuser;
 > alter user odoo with createdb;
 ```
 
 ### 3. Ubuntu packages
 ```
-sudo apt install wkhtmltopdf nodejs npm lessc
+sudo apt install wkhtmltopdf nodejs npm less
 ```
 
 ### 4. Js modules
@@ -45,11 +45,14 @@ source venv/bin/activate
 * psycopg2 -> psycopg2-binary
 * Werkzeug==0.16.1 ; python_version <= '3.9'
 * Werkzeug==2.0.2 ; python_version > '3.9'
+* python-ldap -> python3-ldap
+- remove version of `python3-ldap`
 - remove version of `lxml` package
 + cryptography==38.0.0
 ```
 #### 6.2. next install packages
 ```
+pip install wheel setuptools
 pip install -r requirements.txt
 ```
 
