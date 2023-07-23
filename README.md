@@ -48,7 +48,9 @@ source venv/bin/activate
 * python-ldap -> python3-ldap
 - remove version of `python3-ldap`
 - remove version of `lxml` package
-+ cryptography==38.0.0
++ pyopenssl==22.0.0
++ cryptography==37.0.0
+
 ```
 #### 6.2. next install packages
 ```
