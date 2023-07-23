@@ -65,6 +65,7 @@ db_password = odoo
 dbfilter = 
 data_dir = ***
 http_port = 8069
+longpolling_port = 8072
 logfile = ***
 
 ```
