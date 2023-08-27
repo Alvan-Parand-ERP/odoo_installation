@@ -161,3 +161,31 @@ server {
   gzip on;
 }
 ```
+
+### 10. Live chat and video call configurations
+this feature works with domain name and longpolling. long polling default port is 8072 and nginx comes in Nginx configuration part
+### /etc/nginx/sites-enabled/odoo.conf
+enable ssl and proxy_pass
+
+### /etc/nginx/sites-enabled/odoo.conf
+add this configrurations to ```odoo.conf```
+<ul>
+    <li>Server with 4 CPU, 8 Thread</li>
+    <li>60 concurrent users</li>
+    <li>60 users / 6 = 10 <- theoretical number of worker needed</li>
+    <li>(4 * 2) + 1 = 9 <- theoretical maximal number of worker</li>
+    <li>We’ll use 8 workers + 1 for cron. We’ll also use a monitoring system to measure cpu load, and check if it’s between 7 and 7.5 .</li>
+    <li>RAM = 9 * ((0.8*150) + (0.2*1024)) ~= 3Go RAM for Odoo</li>
+</ul>    
+
+```
+[options]
+limit_memory_hard = 1677721600
+limit_memory_soft = 629145600
+limit_request = 8192
+limit_time_cpu = 600
+limit_time_real = 1200
+max_cron_threads = 1
+workers = 8
+proxy_mode = True
+```
